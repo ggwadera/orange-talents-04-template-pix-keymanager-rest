@@ -1,12 +1,9 @@
 package br.com.zup.ggwadera.register
 
-import br.com.zup.ggwadera.GrpcClientFactory
 import br.com.zup.ggwadera.NewPixKeyReply
 import br.com.zup.ggwadera.RegisterKeyServiceGrpc
 import io.kotest.assertions.asClue
 import io.kotest.matchers.shouldBe
-import io.micronaut.context.annotation.Factory
-import io.micronaut.context.annotation.Replaces
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpStatus
@@ -14,21 +11,12 @@ import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @MicronautTest
 internal class RegisterPixKeyControllerTest {
-
-    @Factory
-    @Replaces(factory = GrpcClientFactory::class)
-    internal class TestFactory {
-        @Singleton
-        fun stubMock() = Mockito.mock(RegisterKeyServiceGrpc.RegisterKeyServiceBlockingStub::class.java)
-    }
 
     @Inject
     lateinit var grpcClient: RegisterKeyServiceGrpc.RegisterKeyServiceBlockingStub

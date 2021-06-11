@@ -2,10 +2,7 @@ package br.com.zup.ggwadera.delete
 
 import br.com.zup.ggwadera.DeleteKeyServiceGrpc
 import br.com.zup.ggwadera.DeletePixKeyReply
-import br.com.zup.ggwadera.GrpcClientFactory
 import io.kotest.matchers.shouldBe
-import io.micronaut.context.annotation.Factory
-import io.micronaut.context.annotation.Replaces
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpStatus
@@ -13,20 +10,12 @@ import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @MicronautTest
 internal class DeleteKeyControllerTest {
-    @Factory
-    @Replaces(factory = GrpcClientFactory::class)
-    internal class TestFactory {
-        @Singleton
-        fun stubMock() = Mockito.mock(DeleteKeyServiceGrpc.DeleteKeyServiceBlockingStub::class.java)
-    }
 
     @Inject
     lateinit var grpcClient: DeleteKeyServiceGrpc.DeleteKeyServiceBlockingStub
