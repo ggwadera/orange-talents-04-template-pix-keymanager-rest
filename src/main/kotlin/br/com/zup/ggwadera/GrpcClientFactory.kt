@@ -13,4 +13,7 @@ class GrpcClientFactory(@GrpcChannel("keymanager") private val channel: ManagedC
     fun register(): RegisterKeyServiceGrpc.RegisterKeyServiceBlockingStub =
         RegisterKeyServiceGrpc.newBlockingStub(channel)
 
+    @Singleton
+    fun delete(): DeleteKeyServiceGrpc.DeleteKeyServiceBlockingStub = DeleteKeyServiceGrpc.newBlockingStub(channel)
+
 }
