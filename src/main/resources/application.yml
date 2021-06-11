@@ -10,3 +10,7 @@ grpc:
     keymanager:
       address: '${KEY_MANAGER_HOST:localhost}:${KEY_MANAGER_PORT:50051}'
       plaintext: true
+
+jackson:
+  serialization:
+    writeDatesAsTimestamps: false

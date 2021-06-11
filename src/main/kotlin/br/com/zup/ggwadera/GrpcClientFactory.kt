@@ -16,4 +16,7 @@ class GrpcClientFactory(@GrpcChannel("keymanager") private val channel: ManagedC
     @Singleton
     fun delete(): DeleteKeyServiceGrpc.DeleteKeyServiceBlockingStub = DeleteKeyServiceGrpc.newBlockingStub(channel)
 
+    @Singleton
+    fun find(): FindKeyServiceGrpc.FindKeyServiceBlockingStub = FindKeyServiceGrpc.newBlockingStub(channel)
+
 }
