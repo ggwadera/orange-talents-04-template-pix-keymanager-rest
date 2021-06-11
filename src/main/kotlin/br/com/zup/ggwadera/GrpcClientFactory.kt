@@ -19,4 +19,7 @@ class GrpcClientFactory(@GrpcChannel("keymanager") private val channel: ManagedC
     @Singleton
     fun find(): FindKeyServiceGrpc.FindKeyServiceBlockingStub = FindKeyServiceGrpc.newBlockingStub(channel)
 
+    @Singleton
+    fun list(): ListKeysServiceGrpc.ListKeysServiceBlockingStub = ListKeysServiceGrpc.newBlockingStub(channel)
+
 }

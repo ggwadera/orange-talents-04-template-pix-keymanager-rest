@@ -22,4 +22,8 @@ class GrpcTestStubFactory {
     fun stubFindService(): FindKeyServiceGrpc.FindKeyServiceBlockingStub =
         Mockito.mock(FindKeyServiceGrpc.FindKeyServiceBlockingStub::class.java)
 
+    @Singleton
+    fun stubListService(): ListKeysServiceGrpc.ListKeysServiceBlockingStub =
+        Mockito.mock(ListKeysServiceGrpc.ListKeysServiceBlockingStub::class.java)
+
 }
